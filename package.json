@@ -1,0 +1,19 @@
+{
+  "name": "elicit",
+  "version": "1.0.0",
+  "description": "Digitalize photo elicitation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsjuradog/Elicit.git"
+  },
+  "author": "Gsjuradog",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsjuradog/Elicit/issues"
+  },
+  "homepage": "https://github.com/gsjuradog/Elicit#readme"
+}
