@@ -1,11 +1,32 @@
 import React from 'react';
-import './App.css';
+import AppStyles from './styles';
+import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import Projects from './components/Projects/projects';
+import LoginForm from './components/loginform/loginForm';
+// import CardImage from './components/cardImage/CardImage';
 
 function App() {
+  const classes = AppStyles();
   return (
-    <div className="App">
-      <h1>heyhola que tal</h1>
-    </div>
+    <Container maxidth="lg">
+      <AppBar className={classes.appBar} position="static" color="inherit">
+        <Typography className={classes.heading} variant="h3" align="center">
+          Elicit
+        </Typography>
+      </AppBar>
+      <Grow in>
+        <Container>
+          <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+            <Grid item xs={12} sm={7}>
+              <Projects></Projects>
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <LoginForm></LoginForm>
+            </Grid>
+          </Grid>
+        </Container>
+      </Grow>
+    </Container>
   );
 }
 
