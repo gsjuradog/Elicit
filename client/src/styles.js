@@ -14,8 +14,5 @@ const AppStyles = makeStyles(() => ({
   heading: {
     color: '#fafafa',
   },
-  image: {
-    marginLeft: '15px',
-  },
 }));
 export default AppStyles;

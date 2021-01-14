@@ -1,30 +1,33 @@
 import React from 'react';
-import AppStyles from './styles';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { Container, Grow, Grid } from '@material-ui/core';
 import Projects from './components/Projects/projects';
+// import Dashboard from './components/Dashboard/Dashboard';
+import Header from './components/Header/Header';
+import Dashboard from './components/Dashboard/Dashboard';
+
 // import CardImage from './components/cardImage/CardImage';
 
 function App() {
-  const classes = AppStyles();
-  return (
-    <Container maxidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h3" align="center">
-          Elicit
-        </Typography>
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-            <Grid item xs={12} sm={7}>
-              <Projects></Projects>
+  const pruebas = false;
+  if (pruebas) {
+    return (
+      <div>
+        <Header />
+        <Grow in>
+          <Container>
+            <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+              <Grid item xs={12} sm={7}>
+                <Projects></Projects>
+              </Grid>
+              <Grid item xs={12} sm={1}></Grid>
             </Grid>
-            <Grid item xs={12} sm={4}></Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
-  );
+          </Container>
+        </Grow>
+      </div>
+    );
+  } else {
+    return <Dashboard></Dashboard>;
+  }
 }
 
 export default App;
