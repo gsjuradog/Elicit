@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/gsjuradog/Elicit/issues"
   },
-  "homepage": "https://github.com/gsjuradog/Elicit#readme"
+  "homepage": "https://github.com/gsjuradog/Elicit#readme",
+  "dependencies": {
+    "semantic-ui-react": "^2.0.2"
+  },
+  "devDependencies": {}
 }
