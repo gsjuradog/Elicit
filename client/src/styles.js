@@ -9,6 +9,7 @@ const AppStyles = makeStyles(() => ({
     justifyContent: 'center',
     alignItems: 'center',
     background: 'linear-gradient(45deg, #431192 30%, #2EC4B6 90%)',
+    font: 'Raleway',
   },
   heading: {
     color: '#fafafa',

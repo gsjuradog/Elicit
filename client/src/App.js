@@ -2,7 +2,6 @@ import React from 'react';
 import AppStyles from './styles';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import Projects from './components/Projects/projects';
-import LoginForm from './components/loginform/loginForm';
 // import CardImage from './components/cardImage/CardImage';
 
 function App() {
@@ -20,9 +19,7 @@ function App() {
             <Grid item xs={12} sm={7}>
               <Projects></Projects>
             </Grid>
-            <Grid item xs={12} sm={4}>
-              <LoginForm></LoginForm>
-            </Grid>
+            <Grid item xs={12} sm={4}></Grid>
           </Grid>
         </Container>
       </Grow>
