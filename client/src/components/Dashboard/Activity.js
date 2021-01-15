@@ -14,11 +14,46 @@ function createData(id, date, name, shipTo, paymentMethod, amount) {
 }
 
 const rows = [
-  createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
-  createData(1, '16 Mar, 2019', 'Paul McCartney', 'London, UK', 'VISA ⠀•••• 2574', 866.99),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-  createData(3, '16 Mar, 2019', 'Michael Jackson', 'Gary, IN', 'AMEX ⠀•••• 2000', 654.39),
-  createData(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79),
+  createData(
+    0,
+    '16 Mar, 2019',
+    'Elvis Presley',
+    'Snacks in home',
+    '2 tasks acomplished',
+    'Unfinished'
+  ),
+  createData(
+    1,
+    '16 Mar, 2019',
+    'Paul McCartney',
+    'Video Streaming consumption',
+    '3 task acomplished',
+    'Finished'
+  ),
+  createData(
+    2,
+    '16 Mar, 2019',
+    'Tom Scholz',
+    'Familly Memories',
+    '1 task acomplished',
+    'Unfinished'
+  ),
+  createData(
+    3,
+    '16 Mar, 2019',
+    'Michael Jackson',
+    'Colacao',
+    '1 task acomplished',
+    'Waiting for new task'
+  ),
+  createData(
+    4,
+    '15 Mar, 2019',
+    'Bruce Springsteen',
+    'Museum Renovation',
+    '0 tasks acomplished',
+    'Unfinished'
+  ),
 ];
 
 function preventDefault(event) {
@@ -35,15 +70,15 @@ export default function Activity() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Recent Activity</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Project</TableCell>
+            <TableCell>Activity</TableCell>
+            <TableCell align="right">Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -60,7 +95,7 @@ export default function Activity() {
       </Table>
       <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
+          See more
         </Link>
       </div>
     </React.Fragment>

@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    margin: '10px 0',
     // display: 'flex',
     // flexDirection: 'row',
     background: 'linear-gradient(45deg, #431192 30%, #2EC4B6 90%)',

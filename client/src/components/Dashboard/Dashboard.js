@@ -22,6 +22,7 @@ import Projects from '../Projects/projects';
 import Activity from './Activity';
 import Copyright from '../Copyrigth/copyrigth';
 import useStyles from './styles';
+import Title from '../Dashboard/Title';
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -32,6 +33,9 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const recentProjects = cards.slice(1, 4);
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
@@ -80,7 +84,8 @@ export default function Dashboard() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <Projects />
+                <Title>Last updated project</Title>
+                <Projects cards={recentProjects} />
               </Paper>
             </Grid>
             {/* Recent Deposits */}
