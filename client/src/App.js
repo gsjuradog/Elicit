@@ -3,13 +3,12 @@ import { Container, Grow, Grid } from '@material-ui/core';
 import Projects from './components/Projects/projects';
 import Header from './components/Header/Header';
 import LoginForm from './components/loginform/loginForm';
-import Dashboard from './components/Dashboard/Dashboard';
+// import Dashboard from './components/Dashboard/Dashboard';
 import Copyright from './components/Copyrigth/copyrigth';
-// import AppStyles from './styles';
-// import CardImage from './components/cardImage/CardImage';
+import AppStyles from './styles';
 
 function App() {
-  // const classes = AppStyles();
+  const classes = AppStyles();
   const pruebas = false;
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   // const recentProjects = cards.slice(1, 4);
@@ -33,15 +32,16 @@ function App() {
       </div>
     );
   } else {
-    // return (
-    //   <>
-    //     <Header />
-    //     <Container className={classes.cardGrid} maxWidth="md">
-    //       <Projects cards={cards}></Projects>
-    //     </Container>
-    //   </>
-    // );
-    return <Dashboard></Dashboard>;
+    return (
+      <>
+        <Header />
+        <Container className={classes.cardGrid} maxWidth="md">
+          <Projects cards={cards}></Projects>
+        </Container>
+        <Copyright />
+      </>
+    );
+    // return <Dashboard></Dashboard>;
   }
 }
 

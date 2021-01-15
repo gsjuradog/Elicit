@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 
 const Projects = ({ cards }) => {
   // const classes = useStyles();
-  const pruebas = true;
+  const pruebas = false;
   if (pruebas) {
     return (
       <div>
