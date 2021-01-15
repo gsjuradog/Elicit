@@ -1,6 +1,5 @@
 import React from 'react';
 import Project from '../Project/project';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 // import Container from '@material-ui/core/Container';
@@ -9,11 +8,11 @@ import Grid from '@material-ui/core/Grid';
 
 const Projects = ({ cards }) => {
   // const classes = useStyles();
-  const pruebas = false;
+  const pruebas = true;
   if (pruebas) {
     return (
       <div>
-        <Project></Project>
+        <Project cards={cards}></Project>
       </div>
     );
   } else {
@@ -29,11 +28,6 @@ const Projects = ({ cards }) => {
             ))}
           </Grid>
         </main>
-        {/* Footer */}
-        {/* <footer className={classes.footer}>
-          <Copyright />
-        </footer> */}
-        {/* End footer */}
       </>
     );
   }

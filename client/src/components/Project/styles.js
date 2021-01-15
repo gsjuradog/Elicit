@@ -10,23 +10,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
   },
-  cardSmall: {
-    height: '85%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
   cardMedia: {
     paddingTop: '56.25%', // 16:9
   },
-  cardMediaSmall: {
-    paddingTop: '45%', // 16:9
-  },
   cardContent: {
     flexGrow: 1,
-  },
-  cardContentSmall: {
-    flexGrow: 0.1,
-    textoverflow: 'ellipsis',
   },
 }));
 export default useStyles;

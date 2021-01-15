@@ -1,11 +1,16 @@
 import React from 'react';
-import { Card, CardActions, CardContent, CardMedia } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
+import { Card, CardActions, CardContent, CardMedia, Link } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
+// import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
 import useStyles from './styles';
+import FullImageProject from '../cardImage/FullImageCard';
 const Project = () => {
   const classes = useStyles();
   const pruebas = false;
+  function preventDefault(event) {
+    event.preventDefault();
+  }
   if (pruebas) {
     return (
       <Card className={classes.card}>
@@ -31,24 +36,9 @@ const Project = () => {
     );
   } else {
     return (
-      <Card className={classes.cardSmall} textoverflow="ellipsis">
-        <CardMedia
-          className={classes.cardMediaSmall}
-          image="https://source.unsplash.com/random"
-          title="Image title"
-        />
-        <CardContent className={classes.cardContentSmall}>
-          <Typography gutterBottom noWrap variant="h7" component="h7">
-            Project name... Project name... Project name... Project name... Project name...
-          </Typography>
-          <Button size="small">go</Button>
-        </CardContent>
-        {/* <CardContent className={classes.cardContentSmall}>
-          <Typography gutterBottom variant="h7" component="h7">
-            Project name...
-          </Typography>
-        </CardContent> */}
-      </Card>
+      <Link underline="none" href="#" onClick={preventDefault}>
+        <FullImageProject></FullImageProject>
+      </Link>
     );
   }
 };

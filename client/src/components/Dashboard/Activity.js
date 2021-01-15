@@ -9,8 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+function createData(id, date, name, project, activity, status) {
+  return { id, date, name, project, activity, status };
 }
 
 const rows = [
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Activity() {
   const classes = useStyles();
   return (
-    <React.Fragment>
+    <>
       <Title>Recent Activity</Title>
       <Table size="small">
         <TableHead>
@@ -86,9 +86,9 @@ export default function Activity() {
             <TableRow key={row.id}>
               <TableCell>{row.date}</TableCell>
               <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+              <TableCell>{row.project}</TableCell>
+              <TableCell>{row.activity}</TableCell>
+              <TableCell align="right">{row.status}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -98,6 +98,6 @@ export default function Activity() {
           See more
         </Link>
       </div>
-    </React.Fragment>
+    </>
   );
 }
