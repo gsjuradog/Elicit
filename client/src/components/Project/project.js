@@ -7,7 +7,7 @@ import useStyles from './styles';
 import FullImageProject from '../cardImage/FullImageCard';
 const Project = () => {
   const classes = useStyles();
-  const pruebas = false;
+  const pruebas = true;
   function preventDefault(event) {
     event.preventDefault();
   }

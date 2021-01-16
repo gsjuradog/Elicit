@@ -9,6 +9,8 @@ import AppStyles from './styles';
 import LoginPage from './components/LoginPage/LoginPage';
 import SignUp from './components/SignUp/SignUp';
 import HomePage from './components/HomePage/HomePage';
+import UploadForm from './components/UploadForm/UploadForm';
+import AudioRecorder from './components/AudioRecorder/AudioRecorder';
 // import UploadForm from './components/UploadForm/UploadForm';
 
 function App() {
@@ -34,7 +36,7 @@ function App() {
               <Grow in>
                 <Container>
                   <Switch>
-                    <Route path="/" exact component={HomePage}></Route>
+                    <Route path="/" exact component={AudioRecorder}></Route>
                     <Route path="/login" component={LoginPage} />
                     <Route path="/signup" component={SignUp} />
                   </Switch>
@@ -52,6 +54,7 @@ function App() {
         <Router>
           <Header />
           <SignUp></SignUp>
+          <UploadForm></UploadForm>
           {/* <Container className={classes.cardGrid} maxWidth="md">
           <Projects cards={cards}></Projects>
         </Container>
