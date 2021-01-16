@@ -4,6 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 function Nav() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -41,8 +42,12 @@ function Nav() {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}>
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/dashboard">Dashboard test</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/signup">Singup tests</Link>
+        </MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </>

@@ -79,8 +79,5 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
-  projContainer: {
-    overflow: 'hidden',
-  },
 }));
 export default useStyles;

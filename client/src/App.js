@@ -3,46 +3,58 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container, Grow } from '@material-ui/core';
 import Projects from './components/Projects/projects';
 import Header from './components/Header/Header';
-import LoginForm from './components/loginform/loginForm';
-// import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard from './components/Dashboard/Dashboard';
 import Copyright from './components/Copyrigth/copyrigth';
 import AppStyles from './styles';
 import LoginPage from './components/LoginPage/LoginPage';
+import SignUp from './components/SignUp/SignUp';
 // import UploadForm from './components/UploadForm/UploadForm';
 
 function App() {
   const classes = AppStyles();
   //mising routes so tests with flag pruebas
   const pruebas = true;
+  const loggedin = false;
   //mock data
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   // const recentProjects = cards.slice(1, 4);
+
   if (pruebas) {
     return (
-      <Router>
-        <div>
-          <Header />
-          <Grow in>
-            <Container>
-              <Route path="/login" component={LoginPage} />
-              {/* <LoginPage /> */}
-              <Copyright />
-            </Container>
-          </Grow>
-        </div>
-      </Router>
+      <>
+        {loggedin ? (
+          <Router>
+            <Route path="/dashboard" component={Dashboard} />
+          </Router>
+        ) : (
+          <Router>
+            <div>
+              <Header />
+              <Grow in>
+                <Container>
+                  <Route path="/login" component={LoginPage} />
+                  <Route path="/signup" component={SignUp} />
+                  <Copyright />
+                </Container>
+              </Grow>
+            </div>
+          </Router>
+        )}
+      </>
     );
   } else {
     return (
       <>
-        <Header />
-        <Container className={classes.cardGrid} maxWidth="md">
+        <Router>
+          <Header />
+          <SignUp></SignUp>
+          {/* <Container className={classes.cardGrid} maxWidth="md">
           <Projects cards={cards}></Projects>
         </Container>
-        <Copyright />
+        <Copyright /> */}
+        </Router>
       </>
     );
-    // return <Dashboard></Dashboard>;
   }
 }
 

@@ -11,17 +11,14 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 // import Deposits from './Deposits';
-import Activity from './Activity';
 import Copyright from '../Copyrigth/copyrigth';
 import useStyles from './styles';
-import RecentProjects from './recentProj';
+import DashboardHome from '../DashboardHome/DashboardHome';
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -34,8 +31,6 @@ export default function Dashboard() {
   };
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const recentProjects = cards.slice(1, 4);
-
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -79,22 +74,7 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {/* last updated projects*/}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Grid className={classes.projContainer} item xs={12} md={10} lg={11}>
-                  <RecentProjects cards={recentProjects} />
-                </Grid>
-              </Paper>
-            </Grid>
-            {/* Activity */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Activity />
-              </Paper>
-            </Grid>
-          </Grid>
+          <DashboardHome recentProjects={recentProjects}></DashboardHome>
           <Box pt={4}>
             <Copyright />
           </Box>
