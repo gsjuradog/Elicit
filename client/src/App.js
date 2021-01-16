@@ -1,15 +1,18 @@
 import React from 'react';
-import { Container, Grow, Grid } from '@material-ui/core';
+import { Container, Grow } from '@material-ui/core';
 import Projects from './components/Projects/projects';
 import Header from './components/Header/Header';
 import LoginForm from './components/loginform/loginForm';
 // import Dashboard from './components/Dashboard/Dashboard';
 import Copyright from './components/Copyrigth/copyrigth';
 import AppStyles from './styles';
+// import UploadForm from './components/UploadForm/UploadForm';
 
 function App() {
   const classes = AppStyles();
-  const pruebas = false;
+  //mising routes so tests with flag pruebas
+  const pruebas = true;
+  //mock data
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   // const recentProjects = cards.slice(1, 4);
   if (pruebas) {
@@ -18,14 +21,7 @@ function App() {
         <Header />
         <Grow in>
           <Container>
-            <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-              <Grid item xs={12} sm={7}>
-                <Projects cards={cards}></Projects>
-              </Grid>
-              <Grid item xs={12} sm={5}>
-                <LoginForm></LoginForm>
-              </Grid>
-            </Grid>
+            <LoginForm />
             <Copyright />
           </Container>
         </Grow>
