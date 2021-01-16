@@ -8,6 +8,7 @@ import Nav from '../Nav/Nav';
 
 // import NotificationsIcon from '@material-ui/icons/Notifications';
 import useStyles from './styles';
+import LoginPage from '../LoginPage/LoginPage';
 
 /* <AppBar className={classes.appBar} position="static" color="inherit">
   <Typography className={classes.heading} variant="h3" align="center">

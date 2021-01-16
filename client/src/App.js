@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container, Grow } from '@material-ui/core';
 import Projects from './components/Projects/projects';
 import Header from './components/Header/Header';
@@ -6,6 +7,7 @@ import LoginForm from './components/loginform/loginForm';
 // import Dashboard from './components/Dashboard/Dashboard';
 import Copyright from './components/Copyrigth/copyrigth';
 import AppStyles from './styles';
+import LoginPage from './components/LoginPage/LoginPage';
 // import UploadForm from './components/UploadForm/UploadForm';
 
 function App() {
@@ -17,15 +19,18 @@ function App() {
   // const recentProjects = cards.slice(1, 4);
   if (pruebas) {
     return (
-      <div>
-        <Header />
-        <Grow in>
-          <Container>
-            <LoginForm />
-            <Copyright />
-          </Container>
-        </Grow>
-      </div>
+      <Router>
+        <div>
+          <Header />
+          <Grow in>
+            <Container>
+              <Route path="/login" component={LoginPage} />
+              {/* <LoginPage /> */}
+              <Copyright />
+            </Container>
+          </Grow>
+        </div>
+      </Router>
     );
   } else {
     return (
