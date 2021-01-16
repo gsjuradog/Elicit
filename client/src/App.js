@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container, Grow } from '@material-ui/core';
-import Projects from './components/Projects/projects';
+// import Projects from './components/Projects/projects';
 import Header from './components/Header/Header';
 import Dashboard from './components/Dashboard/Dashboard';
 import Copyright from './components/Copyrigth/copyrigth';
 import AppStyles from './styles';
 import LoginPage from './components/LoginPage/LoginPage';
 import SignUp from './components/SignUp/SignUp';
+import HomePage from './components/HomePage/HomePage';
 // import UploadForm from './components/UploadForm/UploadForm';
 
 function App() {
@@ -32,8 +33,11 @@ function App() {
               <Header />
               <Grow in>
                 <Container>
-                  <Route path="/login" component={LoginPage} />
-                  <Route path="/signup" component={SignUp} />
+                  <Switch>
+                    <Route path="/" exact component={HomePage}></Route>
+                    <Route path="/login" component={LoginPage} />
+                    <Route path="/signup" component={SignUp} />
+                  </Switch>
                   <Copyright />
                 </Container>
               </Grow>
