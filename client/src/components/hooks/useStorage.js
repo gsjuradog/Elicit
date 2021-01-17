@@ -9,7 +9,6 @@ const useStorage = (file) => {
   useEffect(() => {
     //references
     //The .ref method is telling the storage that the reference to the file has the name passed
-    console.log(file);
     // if (file instanceof Blob) {}
     const storageRef = file.name
       ? projectStorage.ref(file.name)
@@ -30,10 +29,9 @@ const useStorage = (file) => {
       async () => {
         //getting the url of file
         const url = await storageRef.getDownloadURL();
-        //store url of files
+        //storing url of files
         const createdAt = timestamp();
         collectionRef.add({ url, createdAt });
-        console.log(url);
         setUrl(url);
       }
     );

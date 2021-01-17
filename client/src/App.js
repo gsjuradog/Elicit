@@ -11,6 +11,7 @@ import SignUp from './components/SignUp/SignUp';
 import HomePage from './components/HomePage/HomePage';
 import UploadForm from './components/UploadForm/UploadForm';
 import AudioRecorder from './components/AudioRecorder/AudioRecorder';
+import TaskForm from './components/Task/TaskForm';
 // import UploadForm from './components/UploadForm/UploadForm';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
                     <Route path="/" exact component={AudioRecorder}></Route>
                     <Route path="/login" component={LoginPage} />
                     <Route path="/signup" component={SignUp} />
+                    <Route path="/test" component={TaskForm} />
                   </Switch>
                   <Copyright />
                 </Container>

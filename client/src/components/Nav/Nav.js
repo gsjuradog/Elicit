@@ -43,7 +43,7 @@ function Nav() {
         open={Boolean(anchorEl)}
         onClose={handleClose}>
         <MenuItem onClick={handleClose}>
-          <Link to="/dashboard">Dashboard test</Link>
+          <Link to="/test">Dashboard test</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Link to="/signup">Singup tests</Link>

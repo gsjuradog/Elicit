@@ -40,7 +40,7 @@ const MediaRecorder = () => {
             />
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
-                Project title
+                Question
               </Typography>
               <Typography gutterBottom variant="body2" component="h4">
                 <p>{status}</p>
