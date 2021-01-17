@@ -1,14 +1,16 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-env browser */
-import React from 'react';
+import React, { useState } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
 import { Box, Card, CardActions, CardContent, CardMedia, Container, Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 // import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
 import useStyles from './styles';
+import ProgressBar from '../ProgressBar.js/ProgressBar';
 
 const MediaRecorder = () => {
+  const [file, setFile] = useState(null);
   const classes = useStyles();
   const {
     status,
@@ -19,10 +21,11 @@ const MediaRecorder = () => {
   } = useReactMediaRecorder({
     audio: true,
   });
-  const stoped = async () => {
+  const save = async () => {
     const audioBlob = await fetch(mediaBlobUrl).then((r) => r.blob());
     // eslint-disable-next-line
-    console.log(audioBlob);
+    console.log(audioBlob instanceof Blob, audioBlob);
+    setFile(audioBlob);
   };
 
   return (
@@ -45,6 +48,7 @@ const MediaRecorder = () => {
               <audio src={mediaBlobUrl} controls controlsList="nodownload" autoPlay />
             </CardContent>
             <CardActions>
+              {file && <ProgressBar file={file} setFile={setFile} />}
               <Button onClick={startRecording} size="small" color="primary">
                 Start
               </Button>
@@ -54,7 +58,7 @@ const MediaRecorder = () => {
               <Button onClick={stopRecording} size="small" color="primary">
                 Stop
               </Button>
-              <Button onClick={stoped} size="small" color="primary">
+              <Button onClick={save} size="small" color="primary">
                 save
               </Button>
             </CardActions>

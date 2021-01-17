@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { projectStorage } from '../../firebase/config';
+import { projectStorage, dbFirestore, timestamp } from '../../firebase/config';
 
 const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
@@ -9,8 +9,13 @@ const useStorage = (file) => {
   useEffect(() => {
     //references
     //The .ref method is telling the storage that the reference to the file has the name passed
-
-    const storageRef = projectStorage.ref(file.name);
+    console.log(file);
+    // if (file instanceof Blob) {}
+    const storageRef = file.name
+      ? projectStorage.ref(file.name)
+      : projectStorage.ref().child(`audios/${file.size}`);
+    //To interact with the DB a collection is created
+    const collectionRef = dbFirestore.collection('testfiles');
     //this one is async & takes a snapshot in time of the upload at that moment
     storageRef.put(file).on(
       'state_changed',
@@ -23,8 +28,12 @@ const useStorage = (file) => {
         setError(err);
       },
       async () => {
-        //getting the url of image
+        //getting the url of file
         const url = await storageRef.getDownloadURL();
+        //store url of files
+        const createdAt = timestamp();
+        collectionRef.add({ url, createdAt });
+        console.log(url);
         setUrl(url);
       }
     );
