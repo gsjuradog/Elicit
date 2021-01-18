@@ -7,8 +7,12 @@ const useStyles = makeStyles({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  box: {
+    height: '100%',
+  },
   card: {
     maxWidth: '100%',
+    background: '#2ec4b6',
   },
   media: {
     height: '110%',

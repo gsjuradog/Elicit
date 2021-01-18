@@ -7,6 +7,7 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import AddCircleIcon from '@material-ui/icons/AddCircleOutline';
 
 export const MainListItems = ({ history }) => {
   console.log(history);
@@ -22,23 +23,23 @@ export const MainListItems = ({ history }) => {
         <ListItemText primary="Home" />
       </ListItem>
 
-      <ListItem button component={Link} to="/test2">
+      <ListItem button component={Link} to="/projects">
         <ListItemIcon>
           <AssignmentIndIcon />
         </ListItemIcon>
         <ListItemText primary="projects" />
       </ListItem>
-      <ListItem button component={Link} to="/test2">
+      <ListItem button component={Link} to="/createProject">
         <ListItemIcon>
-          <PeopleIcon />
+          <AddCircleIcon />
         </ListItemIcon>
-        <ListItemText primary="created tasks" />
+        <ListItemText primary="Create project" />
       </ListItem>
       <ListItem button>
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
-        <ListItemText primary="Reports" />
+        <ListItemText primary="Review tasks" />
       </ListItem>
       <ListItem button>
         <ListItemIcon>
@@ -54,7 +55,7 @@ export const SecondaryListItems = () => {
   return (
     <div>
       <ListSubheader inset>Saved reports</ListSubheader>
-      <ListItem button component={Link} to="/test2">
+      <ListItem button component={Link} to="/test">
         <ListItemIcon>
           <AssignmentIcon />
         </ListItemIcon>

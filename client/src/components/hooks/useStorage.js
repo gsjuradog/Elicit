@@ -10,15 +10,24 @@ export async function addTask(data, projectTitle) {
     .collection('tasks')
     .doc(title)
     .set({ data, createdAt })
-    .then(console.log('task created'));
+    .then(console.log('task created'))
+    .catch(function (error) {
+      console.error('Error writing document: ', error);
+    });
 }
 
 export async function addProjectsDB(data) {
   const createdAt = timestamp();
   const title = data.title;
 
-  await dbFirestore.collection('projects').doc(title).set({ data, createdAt });
-  console.log('project created');
+  await dbFirestore
+    .collection('projects')
+    .doc(title)
+    .set({ data, createdAt })
+    .then(console.log('Project created'))
+    .catch(function (error) {
+      console.error('Error writing document: ', error);
+    });
 }
 
 export function useStorage(file, data) {
@@ -41,7 +50,7 @@ export function useStorage(file, data) {
       : projectStorage.ref().child(`audios/${file.size}`);
     //To interact with the DB a collection is created
     const collectionRef = dbFirestore
-      .collection('projects')
+      .collection('testfiles')
       .doc(projectTitle)
       .collection('tasks')
       .doc(taskTitle);

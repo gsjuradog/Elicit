@@ -5,6 +5,7 @@ import { CssBaseline, Drawer, AppBar, Toolbar, Typography, Divider } from '@mate
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import useStyles from './styles';
 import { MainListItems, SecondaryListItems } from './listItems';
@@ -36,11 +37,8 @@ export default function AppBarLogged(props) {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Elicit
           </Typography>
-          <Typography>New project</Typography>
-          <IconButton color="inherit">
-            <Link to="/test2">
-              <AddCircleOutlineIcon />
-            </Link>
+          <IconButton fontSize="large" color="inherit" component={Link} to="/profile">
+            <AccountCircleIcon />
           </IconButton>
         </Toolbar>
       </AppBar>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container, Grow } from '@material-ui/core';
 import Header from './components/Header/Header';
@@ -16,12 +16,18 @@ import Projects from './components/Projects/projects';
 import ShowProjects from './components/Dashboard/ShowProjects';
 import AppBarLogged from './components/Dashboard/AppBarLogged';
 import DashboardHome from './components/DashboardHome/DashboardHome';
+import ProjectTaskForm from './components/Forms/ProjectTasksForm';
 
 function App() {
   const classes = useStyles();
   //mising routes so tests with flag pruebas
   const pruebas = true;
   const loggedin = true;
+
+  // function allowCreateTask() {
+  //   history.push('/createTask');
+  // }
+
   //mock data
   // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   // const recentProjects = cards.slice(1, 4);
@@ -39,7 +45,14 @@ function App() {
                   <Switch>
                     <Route path="/dashboard" render={(props) => <DashboardHome {...props} />} />
                     <Route path="/projects" render={(props) => <ShowProjects {...props} />} />
-                    <Route path="/test2" render={(props) => <Projects {...props} />} />
+                    <Route
+                      path="/createProject"
+                      render={(props) => <ProjectForm {...props} addProjectsDB={addProjectsDB} />}
+                    />
+                    <Route
+                      path="/createTask"
+                      render={(props) => <TaskForm {...props} addTask={addTask} />}
+                    />
                   </Switch>
                 </Container>
               </main>

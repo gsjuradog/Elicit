@@ -3,29 +3,12 @@ import { Grid, Paper } from '@material-ui/core';
 import clsx from 'clsx';
 import RecentProjects from '../Dashboard/recentProj';
 import Activity from '../Dashboard/Activity';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './styles';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: 'flex',
-    overflow: 'hidden',
-    flexDirection: 'column',
-  },
-  fixedHeight: {
-    height: 240,
-  },
-  projContainer: {
-    overflow: 'hidden',
-  },
-}));
-
-function DashboardHome({ recentProjects }) {
+function DashboardHome() {
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const recentProject = true;
   return (
     <>
       <Grid container spacing={3}>
@@ -33,7 +16,7 @@ function DashboardHome({ recentProjects }) {
         <Grid item xs={12} md={8} lg={9}>
           <Paper className={fixedHeightPaper}>
             <Grid className={classes.projContainer} item xs={12} md={10} lg={11}>
-              <RecentProjects recent={recentProjects} />
+              <RecentProjects recentProject={recentProject} />
             </Grid>
           </Paper>
         </Grid>

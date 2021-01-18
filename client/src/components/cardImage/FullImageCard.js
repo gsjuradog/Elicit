@@ -8,16 +8,13 @@ import useStyles from './styles';
 const FullImageProject = ({ title, description }) => {
   console.log(title);
   const classes = useStyles();
+  const url = null;
+  var img = url ? url : 'https://source.unsplash.com/random';
   return (
-    <Box>
+    <Box className={classes.box}>
       <FiCard className={classes.card}>
         <FiCardActionArea>
-          <FiCardMedia
-            media="picture"
-            alt="Contemplative Reptile"
-            image="https://source.unsplash.com/random"
-            title="Image title"
-          />
+          <FiCardMedia media="picture" alt="Contemplative Reptile" title="Image title" />
           <FiCardContent className={classes.fiCardContent}>
             <Typography gutterBottom variant="h5" component="h2">
               {title}

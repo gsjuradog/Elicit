@@ -7,20 +7,23 @@ import { Link, Grid, CssBaseline } from '@material-ui/core';
 // import useStyles from './styles';
 import { useFireStore } from '../hooks/useFireStore';
 
-const Projects = ({ recent }) => {
+const Projects = ({ recentProject }) => {
   const { docs } = useFireStore('projects');
-  console.log(docs[0], 'docs');
 
   const doc = docs[0];
   function preventDefault(event) {
     event.preventDefault();
   }
-  const pruebas = false;
-  if (pruebas) {
+
+  if (recentProject) {
     return (
-      <div>
-        <FullImageProject title={doc.data.title} description={doc.data.description} />
-      </div>
+      <>
+        {doc && (
+          <div>
+            <FullImageProject title={doc.data.title} description={doc.data.description} />
+          </div>
+        )}
+      </>
     );
   } else {
     return (
