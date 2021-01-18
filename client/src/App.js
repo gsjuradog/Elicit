@@ -2,9 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container, Grow } from '@material-ui/core';
 import Header from './components/Header/Header';
-import Dashboard from './components/Dashboard/Dashboard';
 import Copyright from './components/Copyrigth/copyrigth';
-// import AppStyles from './styles';
+import useStyles from './styles';
 // import LoginPage from './components/LoginPage/LoginPage';
 import SignUp from './components/SignUp/SignUp';
 // import HomePage from './components/HomePage/HomePage';
@@ -15,14 +14,16 @@ import TaskForm from './components/Tasks/TaskForm';
 import { addProjectsDB, addTask } from './components/hooks/useStorage';
 import Projects from './components/Projects/projects';
 import ShowProjects from './components/Dashboard/ShowProjects';
+import AppBarLogged from './components/Dashboard/AppBarLogged';
+import DashboardHome from './components/DashboardHome/DashboardHome';
 
 function App() {
-  // const classes = AppStyles();
+  const classes = useStyles();
   //mising routes so tests with flag pruebas
   const pruebas = true;
   const loggedin = true;
   //mock data
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   // const recentProjects = cards.slice(1, 4);
 
   if (pruebas) {
@@ -30,11 +31,19 @@ function App() {
       <>
         {loggedin ? (
           <Router>
-            <Switch>
-              <Route path="/dashboard" component={Dashboard} />
-              <Route path="/projects" component={ShowProjects} />
-              <Route path="/test2" render={(props) => <Projects {...props} />} />
-            </Switch>
+            <div className={classes.root}>
+              <AppBarLogged />
+              <main className={classes.content}>
+                <div className={classes.appBarSpacer} />
+                <Container maxWidth="lg" className={classes.container}>
+                  <Switch>
+                    <Route path="/dashboard" render={(props) => <DashboardHome {...props} />} />
+                    <Route path="/projects" render={(props) => <ShowProjects {...props} />} />
+                    <Route path="/test2" render={(props) => <Projects {...props} />} />
+                  </Switch>
+                </Container>
+              </main>
+            </div>
           </Router>
         ) : (
           <Router>

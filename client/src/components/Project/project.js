@@ -5,10 +5,11 @@ import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import useStyles from './styles';
 import FullImageProject from '../cardImage/FullImageCard';
+
 const Project = ({ title, description }) => {
   const classes = useStyles();
   const pruebas = false;
-  console.log(title, 'project');
+
   function preventDefault(event) {
     event.preventDefault();
   }

@@ -1,20 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx'; // used to conditionally apply a given className
-import { CssBaseline, Drawer, Box, AppBar, Toolbar, List, Typography } from '@material-ui/core';
-import { Divider, Container } from '@material-ui/core';
+import { CssBaseline, Drawer, AppBar, Toolbar, Typography, Divider } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import { MainListItems, SecondaryListItems } from './listItems';
-// import Deposits from './Deposits';
-import Copyright from '../Copyrigth/copyrigth';
 import useStyles from './styles';
-import DashboardHome from '../DashboardHome/DashboardHome';
-// import ShowProjects from './ShowProjects';
+import { MainListItems, SecondaryListItems } from './listItems';
 
-export default function Dashboard({ history }) {
+export default function AppBarLogged(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -23,7 +18,7 @@ export default function Dashboard({ history }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  console.log(history, 'dashboard');
+  console.log(props, 'appBarLogged');
 
   return (
     <div className={classes.root}>
@@ -63,23 +58,8 @@ export default function Dashboard({ history }) {
         <Divider />
         <MainListItems history={history} />
         <Divider />
-        <List>{SecondaryListItems}</List>
+        <SecondaryListItems history={history} />
       </Drawer>
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <DashboardHome></DashboardHome>
-          {/* <Router>
-            <Switch>
-              <Route path="/projects" component={ShowProjects} />
-              <Route path="/dashBoardHome" component={DashboardHome} />
-            </Switch>
-          </Router> */}
-          <Box pt={4}>
-            <Copyright />
-          </Box>
-        </Container>
-      </main>
     </div>
   );
 }
