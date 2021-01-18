@@ -27,6 +27,8 @@ const MediaRecorder = () => {
     console.log(audioBlob instanceof Blob, audioBlob);
     setFile(audioBlob);
   };
+  //Retrieve data from server and change this info
+  const taskTitle = { taskTitle: 'Trabajador', projectTitle: 'VidaLa' };
 
   return (
     <>
@@ -48,7 +50,7 @@ const MediaRecorder = () => {
               <audio src={mediaBlobUrl} controls controlsList="nodownload" autoPlay />
             </CardContent>
             <CardActions>
-              {file && <ProgressBar file={file} setFile={setFile} />}
+              {file && <ProgressBar taskTitle={taskTitle} file={file} setFile={setFile} />}
               <Button onClick={startRecording} size="small" color="primary">
                 Start
               </Button>

@@ -1,32 +1,28 @@
 import React, { useState } from 'react';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { Paper, Button, TextField, Typography, Grid } from '@material-ui/core';
 import useStyles from './styles';
 
-function TaskForm({ addTask }) {
+function ProjectForm({ addProjectsDB }) {
   const classes = useStyles();
-  const [task, setTask] = useState({
+  const [project, setProject] = useState({
     title: '',
     description: '',
-    city: '',
-    country: '',
   });
 
   function handleChanges(e) {
     const value = e.target.value;
-    setTask((event) => ({
+    setProject((event) => ({
       ...event,
       [e.target.name]: value,
     }));
   }
   function handleSubmit(e) {
     e.preventDefault();
-    if (!task.title || !task.description) return alert('Title and description are necesary');
-    addTask(task);
-    setTask({
+    if (!project.title || !project.description) return alert('Title and description are necesary');
+    addProjectsDB(project);
+    setProject({
       title: '',
-      date: '',
-      venue: '',
+      description: '',
     });
   }
 
@@ -60,24 +56,9 @@ function TaskForm({ addTask }) {
             onChange={handleChanges}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField id="city" name="city" label="City" fullWidth onChange={handleChanges} />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            required
-            id="country"
-            name="country"
-            label="Country"
-            fullWidth
-            autoComplete="shipping country"
-            onChange={handleChanges}
-          />
-        </Grid>
         <Grid item xs={12}>
           <Button className={classes.button} variant="contained" onClick={handleSubmit}>
-            {' '}
-            Create{' '}
+            Create
           </Button>
         </Grid>
       </Grid>
@@ -85,4 +66,4 @@ function TaskForm({ addTask }) {
   );
 }
 
-export default TaskForm;
+export default ProjectForm;

@@ -8,11 +8,12 @@ import Copyright from './components/Copyrigth/copyrigth';
 import AppStyles from './styles';
 import LoginPage from './components/LoginPage/LoginPage';
 import SignUp from './components/SignUp/SignUp';
-import HomePage from './components/HomePage/HomePage';
+// import HomePage from './components/HomePage/HomePage';
 import UploadForm from './components/UploadForm/UploadForm';
 import AudioRecorder from './components/AudioRecorder/AudioRecorder';
-import TaskForm from './components/Task/TaskForm';
-// import UploadForm from './components/UploadForm/UploadForm';
+import ProjectForm from './components/ProjectForm/ProjectForm';
+import TaskForm from './components/Tasks/TaskForm';
+import { addProjectsDB, addTask } from './components/hooks/useStorage';
 
 function App() {
   const classes = AppStyles();
@@ -38,9 +39,15 @@ function App() {
                 <Container>
                   <Switch>
                     <Route path="/" exact component={AudioRecorder}></Route>
-                    <Route path="/login" component={LoginPage} />
+                    <Route
+                      path="/login"
+                      render={(props) => <TaskForm {...props} addTask={addTask} />}
+                    />
                     <Route path="/signup" component={SignUp} />
-                    <Route path="/test" component={TaskForm} />
+                    <Route
+                      path="/test"
+                      render={(props) => <ProjectForm {...props} addProjectsDB={addProjectsDB} />}
+                    />
                   </Switch>
                   <Copyright />
                 </Container>
