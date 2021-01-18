@@ -5,8 +5,8 @@ import useStyles from '../ProjectForm/styles';
 function TaskForm({ addTask }) {
   const classes = useStyles();
   const [task, setTask] = useState({
-    title: '',
-    description: '',
+    task: '',
+    questions: '',
   });
 
   function handleChanges(e) {
@@ -16,10 +16,11 @@ function TaskForm({ addTask }) {
       [e.target.name]: value,
     }));
   }
+  const projectTitle = 'Cross-disciplinarity in engineering';
   function handleSubmit(e) {
     e.preventDefault();
-    if (!task.title || !task.description) return alert('Title and description are necesary');
-    addTask(task);
+    if (!task.task || !task.questions) return alert('Title and description are necesary');
+    addTask(task, projectTitle);
     setTask({
       title: '',
       description: '',
@@ -36,9 +37,9 @@ function TaskForm({ addTask }) {
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="title"
-            name="title"
-            label="Title"
+            id="task"
+            name="task"
+            label="e.g. Upload and image of yourself"
             fullWidth
             onChange={handleChanges}
           />
@@ -46,11 +47,11 @@ function TaskForm({ addTask }) {
         <Grid item xs={12}>
           <TextField
             required
-            id="Description"
+            id="questions"
             multiline
             rowsMax={8}
-            name="description"
-            label="Write here the instructions for your research participants."
+            name="questions"
+            label="Questions to be answered"
             inputProps={{ maxLength: 450 }}
             fullWidth
             onChange={handleChanges}

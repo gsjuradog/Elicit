@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Router, Switch } from 'react-router-dom';
 import clsx from 'clsx'; // used to conditionally apply a given className
 import { CssBaseline, Drawer, Box, AppBar, Toolbar, List, Typography } from '@material-ui/core';
 import { Divider, Container } from '@material-ui/core';
@@ -12,6 +12,7 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Copyright from '../Copyrigth/copyrigth';
 import useStyles from './styles';
 import DashboardHome from '../DashboardHome/DashboardHome';
+import ShowProjects from './ShowProjects';
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -23,7 +24,7 @@ export default function Dashboard() {
     setOpen(false);
   };
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const recentProjects = cards.slice(1, 4);
+  const recentProjects = cards[0];
 
   return (
     <div className={classes.root}>
@@ -68,7 +69,13 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <DashboardHome recentProjects={recentProjects}></DashboardHome>
+          <DashboardHome></DashboardHome>
+          {/* <Router>
+            <Switch>
+              <Route path="/projects" component={ShowProjects} />
+              <Route path="/dashBoardHome" component={DashboardHome} />
+            </Switch>
+          </Router> */}
           <Box pt={4}>
             <Copyright />
           </Box>

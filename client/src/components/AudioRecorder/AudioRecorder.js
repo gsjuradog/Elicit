@@ -2,7 +2,7 @@
 /* eslint-env browser */
 import React, { useState } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
-import { Box, Card, CardActions, CardContent, CardMedia, Container, Grid } from '@material-ui/core';
+import { Box, Card, CardActions, CardContent, CardMedia, Container } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 // import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';

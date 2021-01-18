@@ -50,7 +50,7 @@ function ProjectForm({ addProjectsDB }) {
             multiline
             rowsMax={6}
             name="description"
-            label="Short description of project max 150 words"
+            label="Description of project max 250 words"
             inputProps={{ maxLength: 250 }}
             fullWidth
             onChange={handleChanges}

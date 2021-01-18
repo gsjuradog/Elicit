@@ -2,11 +2,11 @@ import React from 'react';
 import Title from '../Dashboard/Title';
 import Projects from '../Projects/projects';
 
-const RecentProjects = ({ cards }) => {
+const RecentProjects = () => {
   return (
     <>
-      <Title>Last updated projects</Title>
-      <Projects cards={cards}></Projects>
+      <Title>Last updated project</Title>
+      <Projects></Projects>
     </>
   );
 };

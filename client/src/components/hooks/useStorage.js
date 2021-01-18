@@ -3,7 +3,7 @@ import { projectStorage, dbFirestore, timestamp } from '../../firebase/config';
 
 export async function addTask(data, projectTitle) {
   const createdAt = timestamp();
-  const title = data.title;
+  const title = data.task;
   await dbFirestore
     .collection('projects')
     .doc(projectTitle)

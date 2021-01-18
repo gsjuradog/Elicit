@@ -5,9 +5,10 @@ import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import useStyles from './styles';
 import FullImageProject from '../cardImage/FullImageCard';
-const Project = () => {
+const Project = ({ title, description }) => {
   const classes = useStyles();
-  const pruebas = true;
+  const pruebas = false;
+  console.log(title, 'project');
   function preventDefault(event) {
     event.preventDefault();
   }
@@ -37,7 +38,7 @@ const Project = () => {
   } else {
     return (
       <Link underline="none" href="#" onClick={preventDefault}>
-        <FullImageProject></FullImageProject>
+        <FullImageProject title={title} description={description}></FullImageProject>
       </Link>
     );
   }

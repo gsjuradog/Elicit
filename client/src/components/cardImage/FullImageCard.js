@@ -5,7 +5,8 @@ import Box from '@material-ui/core/Box';
 import { FiCard, FiCardActionArea, FiCardContent, FiCardMedia } from './CardModifications';
 import useStyles from './styles';
 
-const FullImageProject = () => {
+const FullImageProject = ({ title, description }) => {
+  console.log(title);
   const classes = useStyles();
   return (
     <Box>
@@ -19,13 +20,13 @@ const FullImageProject = () => {
           />
           <FiCardContent className={classes.fiCardContent}>
             <Typography gutterBottom variant="h5" component="h2">
-              Name of project
+              {title}
             </Typography>
             <Typography
               variant="body2"
               className={classes.fiCardContentTextSecondary}
               component="p">
-              Description
+              {description}
             </Typography>
           </FiCardContent>
         </FiCardActionArea>

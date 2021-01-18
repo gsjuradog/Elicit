@@ -33,7 +33,7 @@ function DashboardHome({ recentProjects }) {
         <Grid item xs={12} md={8} lg={9}>
           <Paper className={fixedHeightPaper}>
             <Grid className={classes.projContainer} item xs={12} md={10} lg={11}>
-              <RecentProjects cards={recentProjects} />
+              <RecentProjects recent={recentProjects} />
             </Grid>
           </Paper>
         </Grid>
