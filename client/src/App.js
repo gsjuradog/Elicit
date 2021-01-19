@@ -4,7 +4,7 @@ import { Container, Grow } from '@material-ui/core';
 import Header from './components/Header/Header';
 import Copyright from './components/Copyrigth/copyrigth';
 import useStyles from './styles';
-// import LoginPage from './components/LoginPage/LoginPage';
+import LoginPage from './components/LoginPage/LoginPage';
 import SignUp from './components/SignUp/SignUp';
 // import HomePage from './components/HomePage/HomePage';
 import UploadForm from './components/UploadForm/UploadForm';
@@ -12,17 +12,19 @@ import AudioRecorder from './components/AudioRecorder/AudioRecorder';
 import ProjectForm from './components/ProjectForm/ProjectForm';
 import TaskForm from './components/Tasks/TaskForm';
 import { addProjectsDB, addTask } from './components/hooks/useStorage';
+import { useGetOneProject, useGetTasks } from './components/hooks/useFireStore';
 import Projects from './components/Projects/projects';
 import ShowProjects from './components/Dashboard/ShowProjects';
 import AppBarLogged from './components/Dashboard/AppBarLogged';
 import DashboardHome from './components/DashboardHome/DashboardHome';
-import ProjectTaskForm from './components/Forms/ProjectTasksForm';
+
+import Project from './components/Project/project';
 
 function App() {
   const classes = useStyles();
+  const [logeIn, setLogIn] = useState(false);
   //mising routes so tests with flag pruebas
   const pruebas = true;
-  const loggedin = true;
 
   // function allowCreateTask() {
   //   history.push('/createTask');
@@ -35,16 +37,26 @@ function App() {
   if (pruebas) {
     return (
       <>
-        {loggedin ? (
+        {logeIn ? (
           <Router>
             <div className={classes.root}>
-              <AppBarLogged />
+              <AppBarLogged setLogIn={setLogIn} />
               <main className={classes.content}>
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                   <Switch>
-                    <Route path="/dashboard" render={(props) => <DashboardHome {...props} />} />
-                    <Route path="/projects" render={(props) => <ShowProjects {...props} />} />
+                    <Route path="/" exact render={(props) => <DashboardHome {...props} />} />
+                    <Route path="/projects" exact render={(props) => <ShowProjects {...props} />} />
+                    <Route
+                      path="/projects/:handle"
+                      render={(props) => (
+                        <Project
+                          {...props}
+                          useGetTasks={useGetTasks}
+                          useGetOneProject={useGetOneProject}
+                        />
+                      )}
+                    />
                     <Route
                       path="/createProject"
                       render={(props) => <ProjectForm {...props} addProjectsDB={addProjectsDB} />}
@@ -65,10 +77,10 @@ function App() {
               <Grow in>
                 <Container>
                   <Switch>
-                    <Route path="/" exact component={AudioRecorder}></Route>
+                    <Route path="/AudioRecorder" exact component={AudioRecorder}></Route>
                     <Route
-                      path="/login"
-                      render={(props) => <TaskForm {...props} addTask={addTask} />}
+                      path="/"
+                      render={(props) => <LoginPage {...props} setLogIn={setLogIn} />}
                     />
                     <Route path="/test2" render={(props) => <Projects {...props} />} />
 

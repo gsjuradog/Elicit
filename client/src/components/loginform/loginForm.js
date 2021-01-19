@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,8 +13,23 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import useStyles from './styles';
 
-const LoginForm = () => {
+const LoginForm = ({ setLogIn }) => {
+  //no security here
+  const [user, setUser] = useState({ email: '', password: '' });
   const classes = useStyles();
+
+  function handleChanges(e) {
+    const value = e.target.value;
+    setUser((user) => ({
+      ...user,
+      [e.target.name]: value,
+    }));
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLogIn(true);
+  };
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -25,7 +40,7 @@ const LoginForm = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             margin="normal"

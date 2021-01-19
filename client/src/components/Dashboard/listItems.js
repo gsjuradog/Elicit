@@ -6,17 +6,18 @@ import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import AddCircleIcon from '@material-ui/icons/AddCircleOutline';
+import ListAltIcon from '@material-ui/icons/ListAlt';
 
-export const MainListItems = ({ history }) => {
-  console.log(history);
+export const MainListItems = () => {
   // function handleClick(path) {
   //   history.push(path);
   // }
   return (
     <div>
-      <ListItem button component={Link} to="/dashboard">
+      <ListItem button component={Link} to="/">
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
@@ -25,7 +26,7 @@ export const MainListItems = ({ history }) => {
 
       <ListItem button component={Link} to="/projects">
         <ListItemIcon>
-          <AssignmentIndIcon />
+          <ListAltIcon />
         </ListItemIcon>
         <ListItemText primary="projects" />
       </ListItem>
@@ -35,23 +36,27 @@ export const MainListItems = ({ history }) => {
         </ListItemIcon>
         <ListItemText primary="Create project" />
       </ListItem>
-      <ListItem button>
+      {/* future layers of dev */}
+      {/* <ListItem button>
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
-        <ListItemText primary="Review tasks" />
+        <ListItemText primary="Reports" />
       </ListItem>
       <ListItem button>
         <ListItemIcon>
           <LayersIcon />
         </ListItemIcon>
         <ListItemText primary="Integrations" />
-      </ListItem>
+      </ListItem> */}
     </div>
   );
 };
 
-export const SecondaryListItems = () => {
+export const SecondaryListItems = ({ setLogIn }) => {
+  const handleClick = () => {
+    setLogIn(false);
+  };
   return (
     <div>
       <ListSubheader inset>Saved reports</ListSubheader>
@@ -67,11 +72,11 @@ export const SecondaryListItems = () => {
         </ListItemIcon>
         <ListItemText primary="Proyect B" />
       </ListItem>
-      <ListItem button component={Link} to="/test2">
+      <ListItem button component={Link} to="/" onClick={handleClick}>
         <ListItemIcon>
-          <AssignmentIcon />
+          <ExitToAppIcon />
         </ListItemIcon>
-        <ListItemText primary="Proyect C" />
+        <ListItemText primary="Log out" />
       </ListItem>
     </div>
   );

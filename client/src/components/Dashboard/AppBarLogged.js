@@ -6,11 +6,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import useStyles from './styles';
 import { MainListItems, SecondaryListItems } from './listItems';
 
-export default function AppBarLogged(props) {
+export default function AppBarLogged({ setLogIn }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -19,7 +18,6 @@ export default function AppBarLogged(props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  console.log(props, 'appBarLogged');
 
   return (
     <div className={classes.root}>
@@ -56,7 +54,7 @@ export default function AppBarLogged(props) {
         <Divider />
         <MainListItems history={history} />
         <Divider />
-        <SecondaryListItems history={history} />
+        <SecondaryListItems history={history} setLogIn={setLogIn} />
       </Drawer>
     </div>
   );

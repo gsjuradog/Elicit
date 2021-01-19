@@ -9,8 +9,8 @@ function ProjectForm({ addProjectsDB, history }) {
     description: '',
   });
 
-  function allowCreateTask() {
-    history.push('/createTask');
+  function redirect() {
+    history.push('/dashboard');
   }
 
   function handleChanges(e) {
@@ -27,7 +27,7 @@ function ProjectForm({ addProjectsDB, history }) {
 
     addProjectsDB(project);
     console.log(project.title);
-    allowCreateTask();
+    redirect();
     // setTitleAndDesc({ title: project.title, description: project.description });
     setProject({
       title: '',

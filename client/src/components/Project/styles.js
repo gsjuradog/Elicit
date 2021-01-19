@@ -16,5 +16,15 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
+  paper: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    overflow: 'hidden',
+    flexDirection: 'column',
+  },
+  fixedHeight: {
+    height: 'auto',
+    width: '50%',
+  },
 }));
 export default useStyles;

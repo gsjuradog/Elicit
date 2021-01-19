@@ -5,7 +5,7 @@ import Projects from '../Projects/projects';
 
 function ShowProjects({ history }) {
   const classes = useStyles();
-  console.log(history, 'showPro');
+
   return (
     <Grid item xs={12}>
       <Paper className={classes.paper}>

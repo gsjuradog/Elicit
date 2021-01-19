@@ -10,8 +10,10 @@ export async function addTask(data, projectTitle) {
     .collection('tasks')
     .doc(title)
     .set({ data, createdAt })
+    // eslint-disable-next-line
     .then(console.log('task created'))
     .catch(function (error) {
+      // eslint-disable-next-line
       console.error('Error writing document: ', error);
     });
 }
@@ -24,8 +26,10 @@ export async function addProjectsDB(data) {
     .collection('projects')
     .doc(title)
     .set({ data, createdAt })
+    // eslint-disable-next-line
     .then(console.log('Project created'))
     .catch(function (error) {
+      // eslint-disable-next-line
       console.error('Error writing document: ', error);
     });
 }
@@ -34,6 +38,7 @@ export function useStorage(file, data) {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
+
   console.log(data);
   const taskTitle = data.taskTitle;
   const projectTitle = data.projectTitle;

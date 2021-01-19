@@ -3,7 +3,7 @@ import { Paper, Button, TextField, Typography, Grid } from '@material-ui/core';
 import useStyles from '../ProjectForm/styles';
 import { useFireStore } from '../hooks/useFireStore';
 
-function TaskForm({ addTask, history }) {
+function TaskForm(props) {
   const classes = useStyles();
   const [task, setTask] = useState({
     task: '',
@@ -11,9 +11,8 @@ function TaskForm({ addTask, history }) {
   });
   const { docs } = useFireStore('projects');
 
-  // const [Title, setTitle] = useState({});
   function TaskAdded() {
-    history.push('/dashboard');
+    props.history.push('/');
   }
 
   function handleChanges(e) {
@@ -23,11 +22,13 @@ function TaskForm({ addTask, history }) {
       [e.target.name]: value,
     }));
   }
-  const projectTitle = docs[0].data.title;
+  //Comes from project
+  const { projectTitle } = props.location.state;
+
   function handleSubmit(e) {
     e.preventDefault();
     if (!task.task || !task.questions) return alert('description and questions are necesary');
-    addTask(task, projectTitle);
+    props.addTask(task, projectTitle);
     TaskAdded();
     setTask({
       title: '',
@@ -37,7 +38,7 @@ function TaskForm({ addTask, history }) {
 
   return (
     <>
-      {docs && <Typography>{docs[0].data.title}</Typography>}
+      {docs && <Typography>{projectTitle}</Typography>}
       <Paper className={classes.paper}>
         <form></form>
         <Typography variant="h6" gutterBottom>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useStorage } from '../hooks/useStorage';
 // add later setFile
-const ProgressBar = ({ taskTitle, project, setProject, file, setFile }) => {
+const ProgressBar = ({ taskTitle, file, setFile }) => {
   //this makes the conection to the useStorage hook
   //wich in turn will store the file that is being given in firestore
   const { url, progress } = useStorage(file, taskTitle);
