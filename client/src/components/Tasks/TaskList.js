@@ -3,6 +3,7 @@ import moment from 'moment';
 import { Table, TableBody, TableCell, TableRow, TableHead } from '@material-ui/core';
 
 export default function TaskList({ tasks }) {
+  //gets props from project in /project
   return (
     <>
       <Table>

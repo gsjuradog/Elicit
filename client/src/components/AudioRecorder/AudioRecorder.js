@@ -7,9 +7,13 @@ import { Typography } from '@material-ui/core';
 // import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
 import useStyles from './styles';
-import ProgressBar from '../ProgressBar.js/ProgressBar';
+import AudioProgressBar from '../ProgressBar.js/AudioProgressBar';
 
-const MediaRecorder = () => {
+const MediaRecorder = ({ showAudio, setFinished }) => {
+  console.log(showAudio, 'show');
+  const { url, data } = showAudio;
+  console.log(data);
+  console.log(url);
   const [file, setFile] = useState(null);
   const classes = useStyles();
   const {
@@ -28,21 +32,16 @@ const MediaRecorder = () => {
     setFile(audioBlob);
   };
   //Retrieve data from server and change this info
-  const taskTitle = { taskTitle: 'Trabajador', projectTitle: 'VidaLa' };
 
   return (
     <>
       <Box className={classes.cardContainer}>
         <Container className={classes.cardGrid} justify="space-between">
           <Card className={classes.card}>
-            <CardMedia
-              className={classes.cardMedia}
-              image="https://source.unsplash.com/random"
-              title="Image title"
-            />
+            <CardMedia className={classes.cardMedia} image={url} title="Image title" />
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
-                Question
+                {/* {data.questions} */}
               </Typography>
               <Typography gutterBottom variant="body2" component="h4">
                 <p>{status}</p>
@@ -50,7 +49,14 @@ const MediaRecorder = () => {
               <audio src={mediaBlobUrl} controls controlsList="nodownload" autoPlay />
             </CardContent>
             <CardActions>
-              {file && <ProgressBar taskTitle={taskTitle} file={file} setFile={setFile} />}
+              {file && (
+                <AudioProgressBar
+                  setFinished={setFinished}
+                  file={file}
+                  setFile={setFile}
+                  data={data}
+                />
+              )}
               <Button onClick={startRecording} size="small" color="primary">
                 Start
               </Button>

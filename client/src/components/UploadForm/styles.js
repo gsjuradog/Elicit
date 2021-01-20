@@ -22,6 +22,14 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
     margin: theme.spacing(1),
   },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#431192',
+  },
+  form: {
+    width: '100%',
+    marginTop: theme.spacing(1),
+  },
 }));
 
 export default useStyles;

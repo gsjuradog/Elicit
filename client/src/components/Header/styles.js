@@ -18,5 +18,8 @@ const useStyles = makeStyles(() => ({
     flexGrow: 1,
     color: '#fafafa',
   },
+  button: {
+    backgroundColor: '#431192',
+  },
 }));
 export default useStyles;

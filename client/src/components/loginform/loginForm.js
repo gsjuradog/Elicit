@@ -25,9 +25,10 @@ const LoginForm = ({ setLogIn }) => {
       [e.target.name]: value,
     }));
   }
-
+  //moking participant or researcher login
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setLogIn(true);
   };
   return (

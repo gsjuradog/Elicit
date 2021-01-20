@@ -1,21 +1,22 @@
 import React, { useEffect } from 'react';
 
-import { useStorage } from '../hooks/useStorage';
+import { useStorageAudio } from '../hooks/useStorage';
 import useStyles from './styles';
 
-const ProgressBar = ({ setShowAudio, file, setFile, data }) => {
+const AudioProgressBar = ({ setFinished, file, setFile, data }) => {
   //this makes the conection to the useStorage hook
   //wich in turn will store the file that is being given in firestore
-  const { url, progress } = useStorage(file, data);
-  console.log(history);
+
+  const { audioUrl, progress } = useStorageAudio(file, data);
+
   //history not being pushed BUG
 
   useEffect(() => {
-    if (url) {
+    if (audioUrl) {
       setFile(null);
-      setShowAudio({ url: url, data: data });
+      setFinished({ url: audioUrl, data: data });
     }
-  }, [url]); //this last element is the one that is being observed, at the moment it changes useEfect happens
+  }, [audioUrl]); //this last element is the one that is being observed, at the moment it changes useEfect happens
 
   //As style is just for one element i prefer to add it here
 
@@ -23,4 +24,4 @@ const ProgressBar = ({ setShowAudio, file, setFile, data }) => {
 
   return <div className={classes.progressBar} style={{ width: progress + '%' }}></div>;
 };
-export default ProgressBar;
+export default AudioProgressBar;

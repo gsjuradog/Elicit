@@ -17,12 +17,15 @@ import Projects from './components/Projects/projects';
 import ShowProjects from './components/Dashboard/ShowProjects';
 import AppBarLogged from './components/Dashboard/AppBarLogged';
 import DashboardHome from './components/DashboardHome/DashboardHome';
+import ParticipantLogIn from './components/loginform/ParticipantLogIn';
+import Answer from './components/Answers/Answer';
 
 import Project from './components/Project/project';
 
 function App() {
   const classes = useStyles();
-  const [logeIn, setLogIn] = useState(false);
+  const [logIn, setLogIn] = useState(false);
+  const [participantLogIn, setParticipantLogIn] = useState(false);
   //mising routes so tests with flag pruebas
   const pruebas = true;
 
@@ -30,14 +33,10 @@ function App() {
   //   history.push('/createTask');
   // }
 
-  //mock data
-  // const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  // const recentProjects = cards.slice(1, 4);
-
   if (pruebas) {
     return (
       <>
-        {logeIn ? (
+        {logIn ? (
           <Router>
             <div className={classes.root}>
               <AppBarLogged setLogIn={setLogIn} />
@@ -73,20 +72,31 @@ function App() {
         ) : (
           <Router>
             <div>
-              <Header />
+              <Header logIn={logIn} participantLogIn={participantLogIn} />
               <Grow in>
                 <Container>
                   <Switch>
                     <Route path="/AudioRecorder" exact component={AudioRecorder}></Route>
-                    <Route
-                      path="/"
-                      render={(props) => <LoginPage {...props} setLogIn={setLogIn} />}
-                    />
-                    <Route path="/test2" render={(props) => <Projects {...props} />} />
 
                     <Route
-                      path="/test"
-                      render={(props) => <ProjectForm {...props} addProjectsDB={addProjectsDB} />}
+                      path="/"
+                      exact
+                      render={(props) => <LoginPage {...props} setLogIn={setLogIn} />}
+                    />
+
+                    <Route
+                      path="/participant"
+                      render={(props) => (
+                        <ParticipantLogIn {...props} setParticipantLogIn={setParticipantLogIn} />
+                      )}
+                    />
+                    <Route
+                      path="/uploadImage"
+                      render={(props) => <UploadForm {...props} useGetTasks={useGetTasks} />}
+                    />
+                    <Route
+                      path="/answer"
+                      render={(props) => <Answer {...props} addProjectsDB={addProjectsDB} />}
                     />
                   </Switch>
                   <Copyright />

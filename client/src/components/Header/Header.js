@@ -16,22 +16,50 @@ import useStyles from './styles';
   </Typography>
 </AppBar> */
 
-const Header = () => {
+const Header = ({ logIn, participantLogIn }) => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <AppBar className={classes.appBar} position="static">
-        <Toolbar>
-          <Nav />
-          <Typography variant="h5" className={classes.title}>
-            Elicit
-          </Typography>
-          <Button color="inherit">
-            <Link to="/login">Login</Link>
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <>
+      {participantLogIn ? (
+        <div className={classes.root}>
+          <AppBar className={classes.appBar} position="static">
+            <Toolbar>
+              <Nav />
+              <Typography variant="h5" className={classes.title}>
+                Elicit
+              </Typography>
+              {/* <Button
+                variant="contained"
+                color="primary"
+                classname={classes.button}
+                component={Link}
+                to="/participant">
+                Participant
+              </Button> */}
+            </Toolbar>
+          </AppBar>
+        </div>
+      ) : (
+        <div className={classes.root}>
+          <AppBar className={classes.appBar} position="static">
+            <Toolbar>
+              <Nav />
+              <Typography variant="h5" className={classes.title}>
+                Elicit
+              </Typography>
+              <Button
+                variant="contained"
+                color="primary"
+                classname={classes.button}
+                component={Link}
+                to="/participant">
+                Participant
+              </Button>
+            </Toolbar>
+          </AppBar>
+        </div>
+      )}
+    </>
   );
 };
 
