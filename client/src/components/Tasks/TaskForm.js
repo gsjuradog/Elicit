@@ -23,12 +23,12 @@ function TaskForm(props) {
     }));
   }
   //Comes from project
-  const { projectTitle } = props.location.state;
+  const { title } = props.location.state.project;
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!task.task || !task.questions) return alert('description and questions are necesary');
-    props.addTask(task, projectTitle);
+    props.addTask(task, title);
     TaskAdded();
     setTask({
       title: '',
@@ -38,7 +38,7 @@ function TaskForm(props) {
 
   return (
     <>
-      {docs && <Typography>{projectTitle}</Typography>}
+      {docs && <Typography>{title}</Typography>}
       <Paper className={classes.paper}>
         <form></form>
         <Typography variant="h6" gutterBottom>

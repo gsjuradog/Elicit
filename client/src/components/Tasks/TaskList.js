@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { Table, TableBody, TableCell, TableRow, TableHead } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export default function TaskList({ tasks }) {
   //gets props from project in /project
@@ -11,7 +12,9 @@ export default function TaskList({ tasks }) {
           <TableRow>
             <TableCell>Date</TableCell>
             <TableCell>Task</TableCell>
-            <TableCell>Sub-Tasks</TableCell>
+            <TableCell component={Link} to={{ pathname: '/answers', state: tasks }}>
+              Sub-Tasks
+            </TableCell>
           </TableRow>
         </TableHead>
 

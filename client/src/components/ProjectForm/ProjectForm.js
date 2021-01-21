@@ -8,9 +8,9 @@ function ProjectForm({ addProjectsDB, history }) {
     title: '',
     description: '',
   });
-
+  console.log(history);
   function redirect() {
-    history.push('/dashboard');
+    history.push({ phatname: '/createTask', state: { project: project } });
   }
 
   function handleChanges(e) {

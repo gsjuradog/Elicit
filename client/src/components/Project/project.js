@@ -17,6 +17,7 @@ const Project = (props) => {
   //Comes frome useFireStore and App
   const content = props.useGetOneProject(title);
   const { tasks } = props.useGetTasks('projects', title);
+  const project = { title: title };
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -40,9 +41,7 @@ const Project = (props) => {
             <Title>Tasks for this project</Title>
             <TaskList tasks={tasks} />
             <div className={classes.seeMore}>
-              <Link
-                color="primary"
-                to={{ pathname: '/createTask', state: { projectTitle: `${title}` } }}>
+              <Link color="primary" to={{ pathname: '/createTask', state: { project: project } }}>
                 Add task
               </Link>
             </div>

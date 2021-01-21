@@ -19,8 +19,10 @@ import AppBarLogged from './components/Dashboard/AppBarLogged';
 import DashboardHome from './components/DashboardHome/DashboardHome';
 import ParticipantLogIn from './components/loginform/ParticipantLogIn';
 import Answer from './components/Answers/Answer';
+import Answers from './components/Answers/Answers';
 
 import Project from './components/Project/project';
+import ProjectTaskForm from './components/Forms/ProjectTasksForm';
 
 function App() {
   const classes = useStyles();
@@ -32,6 +34,7 @@ function App() {
   // function allowCreateTask() {
   //   history.push('/createTask');
   // }
+  console.log(logIn);
 
   if (pruebas) {
     return (
@@ -60,9 +63,14 @@ function App() {
                       path="/createProject"
                       render={(props) => <ProjectForm {...props} addProjectsDB={addProjectsDB} />}
                     />
+
                     <Route
                       path="/createTask"
                       render={(props) => <TaskForm {...props} addTask={addTask} />}
+                    />
+                    <Route
+                      path="/answers"
+                      render={(props) => <Answers {...props} addTask={addTask} />}
                     />
                   </Switch>
                 </Container>
