@@ -19,19 +19,14 @@ import AppBarLogged from './components/Dashboard/AppBarLogged';
 import DashboardHome from './components/DashboardHome/DashboardHome';
 import ParticipantLogIn from './components/loginform/ParticipantLogIn';
 import Answer from './components/Answers/Answer';
-
 import Project from './components/Project/project';
-
+console.log(process.env.REACT_APP_APIKEY);
 function App() {
   const classes = useStyles();
   const [logIn, setLogIn] = useState(false);
   const [participantLogIn, setParticipantLogIn] = useState(false);
   //mising routes so tests with flag pruebas
   const pruebas = true;
-
-  // function allowCreateTask() {
-  //   history.push('/createTask');
-  // }
 
   if (pruebas) {
     return (

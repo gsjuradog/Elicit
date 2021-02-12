@@ -23,8 +23,7 @@ const ParticipantLogin = ({ setParticipantLogIn, history }) => {
   const classes = useStyles();
   //access database
   const { docs } = useFireStore('projects');
-  // const { tasks } = useGetTasks('projects', project);
-  console.log(docs);
+
   function redirect() {
     history.push({ pathname: '/uploadImage', state: { user: user } });
   }

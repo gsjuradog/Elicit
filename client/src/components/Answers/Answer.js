@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Card, CardActions, CardContent, CardMedia, Container } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 // import EditIcon from '@material-ui/icons/Edit';
-import Button from '@material-ui/core/Button';
+
 import useStyles from './styles';
 
 export default function Answer() {

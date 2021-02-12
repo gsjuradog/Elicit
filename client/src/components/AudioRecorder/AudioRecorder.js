@@ -4,16 +4,14 @@ import React, { useState } from 'react';
 import { useReactMediaRecorder } from 'react-media-recorder';
 import { Box, Card, CardActions, CardContent, CardMedia, Container } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
-// import EditIcon from '@material-ui/icons/Edit';
+
 import Button from '@material-ui/core/Button';
 import useStyles from './styles';
 import AudioProgressBar from '../ProgressBar.js/AudioProgressBar';
 
 const MediaRecorder = ({ showAudio, setFinished }) => {
-  console.log(showAudio, 'show');
   const { url, data } = showAudio;
-  console.log(data);
-  console.log(url);
+
   const [file, setFile] = useState(null);
   const classes = useStyles();
   const {
@@ -41,7 +39,7 @@ const MediaRecorder = ({ showAudio, setFinished }) => {
             <CardMedia className={classes.cardMedia} image={url} title="Image title" />
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
-                {/* {data.questions} */}
+                {/* {data.questions} */} How does this image represent your hygine habits?
               </Typography>
               <Typography gutterBottom variant="body2" component="h4">
                 <p>{status}</p>

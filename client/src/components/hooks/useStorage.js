@@ -39,7 +39,6 @@ export function useStorage(file, data) {
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
 
-  console.log(data, 'useStorage');
   const taskTitle = data.taskTitle;
   const projectTitle = data.projectTitle;
   const title = data ? data.taskTitle : 'no extra info';
@@ -95,7 +94,6 @@ export function useStorageAudio(file, data) {
   const [error, setError] = useState(null);
   const [audioUrl, setAudioUrl] = useState(null);
 
-  console.log(data, 'useStorage');
   const taskTitle = data.taskTitle;
   const projectTitle = data.projectTitle;
   const title = data ? data.taskTitle : 'no extra info';

@@ -42,7 +42,6 @@ export function useGetTasks(collection, projectTitle) {
       .collection('tasks')
       .orderBy('createdAt', 'desc')
       .onSnapshot((snap) => {
-        console.log('taking snap');
         let documents = [];
         snap.forEach((doc) => {
           documents.push({ ...doc.data(), id: doc.id });

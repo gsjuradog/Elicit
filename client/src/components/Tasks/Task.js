@@ -1,5 +1,5 @@
-import { Paper, Typography, Container, Grid } from '@material-ui/core';
-import { Table, TableBody, TableCell, TableRow, TableHead } from '@material-ui/core';
+import { Typography, Container, Grid } from '@material-ui/core';
+import { Table, TableCell, TableRow, TableHead } from '@material-ui/core';
 import React from 'react';
 import useStyles from '../../styles';
 

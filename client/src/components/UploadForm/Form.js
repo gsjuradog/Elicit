@@ -10,7 +10,6 @@ export default function Form({ setShowAudio, tasks, project, name, code }) {
   const classes = useStyles();
   //Tasks are not being passed correctly, a promise arrives first
   // eslint-disable-next-line
-  console.log(tasks, 'form');
   //therefore I mocked the taskTitle
   const taskTitle = 'Upload a picture that represents an hygine habit';
   const questions = 'How does this image represent your hygine habits?';
@@ -21,7 +20,7 @@ export default function Form({ setShowAudio, tasks, project, name, code }) {
     name: name,
     code: code,
   };
-  console.log(data);
+
   const types = ['image/png', 'image/jpeg'];
 
   const changeHandler = (e) => {
