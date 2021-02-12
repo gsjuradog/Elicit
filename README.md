@@ -9,14 +9,14 @@ Photo elicitation is a methodology that has been used extensively in Social Scie
 
 <h1 style="text-align: center">Log in and Dashboard</h1>
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap">
-  <img src="readme_imag/Elicit1.png" alt="login" width="200"/>
-  <img src="readme_imag/dashboard.png" alt="new-route1" width="200"/>
+  <img src="readme_Imag/Elicit1.png" alt="login" width="200"/>
+  <img src="readme_Imag/dashboard.png" alt="new-route1" width="200"/>
 </div>
 
 <h1 style="text-align: center">Add new routes</h1>
 <div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap">
-  <img src="readme_imag/upload_pic.png" alt="new-route1" width="200"/>
-  <img src="readme_imag/record_audio.png" alt="record audio" width="200"/>
+  <img src="readme_Imag/upload_pic.png" alt="new-route1" width="200"/>
+  <img src="readme_Imag/record_audio.png" alt="record audio" width="200"/>
 </div>
 
 ### Tech Stack
