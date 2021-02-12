@@ -7,18 +7,24 @@ Photo elicitation is a methodology that has been used extensively in Social Scie
 
 
 
-<h1 style="text-align: center">Log in and Dashboard</h1>
-<div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap">
-  <img src="readme_Imag/Elicit1.png" alt="login" width="200"/>
+<h1 style="text-align: center">Dashboard</h1>
+<div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; margin-bottom:10">
   <img src="readme_Imag/dashboard.png" alt="new-route1" width="200"/>
 </div>
 
-<h1 style="text-align: center">Add new routes</h1>
-<div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap">
+<h1 style="text-align: center">Participants: upload images and record audio</h1>
+<div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; margin-bottom:10">
   <img src="readme_Imag/upload_pic.png" alt="new-route1" width="200"/>
   <img src="readme_Imag/record_audio.png" alt="record audio" width="200"/>
 </div>
 
-### Tech Stack
+<h1 style="text-align: center">Review created tasks</h1>
+<div style="width: 100%; display:flex; justify-content:space-evenly; flex-wrap: wrap; margin-bottom:10">
+  <img src="readme_Imag/Elicit8.png" alt="login" width="780"/>
+</div>
+
+
+
+## Tech Stack
 
 Elicit was built using React, Material-UI and react-media-recorder acompained by a "serverless" architecture provided by Google's Firebase.
